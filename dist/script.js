@@ -2,4 +2,4 @@
 const totalSum = (a, b) => {
     return a + b;
 };
-console.log(totalSum(200, 100));
+console.log(totalSum(800, 500));
