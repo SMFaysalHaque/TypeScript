@@ -328,7 +328,7 @@ console.log("Learning Notes:", CONVERSATION_URL);
 // OBJECT WITH FUNCTION (METHOD)
 // ================================================
 
-const studenttt: {
+const studentttt: {
   name: string;
   age: number;
   greet: () => void;
@@ -346,9 +346,9 @@ const studenttt: {
   },
 };
 
-studenttt.greet();
+studentttt.greet();
 
-console.log("My Age:", studenttt.getAge());
+console.log("My Age:", studentttt.getAge());
 
 
 // ================================================
@@ -364,6 +364,102 @@ const calculator: {
 };
 
 console.log("Addition:", calculator.add(10, 20));
+
+
+// ================================================
+// NESTED OBJECT TYPE / NESTED TYPE ALIAS
+// ================================================
+
+// Address Type
+type Address = {
+  holdingNumber: number;
+  street: string;
+  city: string;
+};
+
+// Person Type
+type Personnn = {
+  name: string;
+  age: number;
+  address: Address;
+};
+
+// Person Object
+const personnn: Personnn = {
+  name: "Rahim",
+  age: 25,
+
+  address: {
+    holdingNumber: 101,
+    street: "Dhanmondi Road",
+    city: "Dhaka",
+  },
+};
+
+// Access Nested Object Properties
+console.log(personnn.name);
+console.log(personnn.address.holdingNumber);
+console.log(personnn.address.street);
+console.log(personnn.address.city);
+
+
+// ================================================
+// NESTED OBJECT WITH MULTIPLE TYPES
+// ================================================
+
+type Country = {
+  name: string;
+  code: string;
+};
+
+type Locationnn = {
+  city: string;
+  country: Country;
+};
+
+type Userrr = {
+  name: string;
+  location: Locationnn;
+};
+
+const userrr: Userrr = {
+  name: "Karim",
+
+  location: {
+    city: "Dhaka",
+
+    country: {
+      name: "Bangladesh",
+      code: "BD",
+    },
+  },
+};
+
+console.log(userrr.location.country.name);
+
+
+// ================================================
+// NESTED OBJECT WITH OPTIONAL PROPERTY
+// ================================================
+
+type StudentAddress = {
+  street: string;
+  postalCode?: number;
+};
+
+type Studenttt = {
+  name: string;
+  address: StudentAddress;
+};
+
+const studenttt: Studenttt = {
+  name: "Hasan",
+
+  address: {
+    street: "Mirpur",
+  },
+};
+
 
 
 
